@@ -1,0 +1,142 @@
+{
+  "accuracy": {
+    "class_prior_s0": 0.10277777777777777,
+    "logistic_s0": 0.9555555555555556,
+    "regularized_s0": 0.9638888888888889,
+    "regularized_s1": 0.9694444444444444,
+    "regularized_s2": 0.9694444444444444,
+    "sensitivity_s0": 0.9638888888888889,
+    "sensitivity_s1": 0.9694444444444444,
+    "sensitivity_s2": 0.9694444444444444,
+    "shuffled_labels_s0": 0.06111111111111111,
+    "shuffled_labels_s1": 0.11666666666666667,
+    "shuffled_labels_s2": 0.10833333333333334,
+    "unregularized_s0": 0.9638888888888889,
+    "unregularized_s1": 0.9694444444444444,
+    "unregularized_s2": 0.9694444444444444,
+    "regularized_mean": 0.9675925925925926,
+    "regularized_sd": 0.0032075014954979094,
+    "unregularized_mean": 0.9675925925925926,
+    "unregularized_sd": 0.0032075014954979094,
+    "sensitivity_mean": 0.9675925925925926,
+    "sensitivity_sd": 0.0032075014954979094,
+    "shuffled_labels_mean": 0.09537037037037037,
+    "shuffled_labels_sd": 0.029960536458080438
+  },
+  "recomputed_accuracy_matches": true,
+  "effects": {
+    "regularized-unregularized": {
+      "mean_effect": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "per_seed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "seed_std": 0.0,
+      "role": "primary"
+    },
+    "sensitivity-unregularized": {
+      "mean_effect": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "per_seed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "seed_std": 0.0,
+      "role": "descriptive"
+    },
+    "regularized-sensitivity": {
+      "mean_effect": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "per_seed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "seed_std": 0.0,
+      "role": "descriptive"
+    },
+    "regularized-shuffled_labels": {
+      "mean_effect": 0.8722222222222222,
+      "ci95": [
+        0.8472222222222222,
+        0.8953703703703704
+      ],
+      "per_seed": [
+        0.9027777777777778,
+        0.8527777777777777,
+        0.8611111111111112
+      ],
+      "seed_std": 0.026787918780535994,
+      "role": "control"
+    }
+  },
+  "audit": {
+    "max_weight_diff_reg_vs_unreg": [
+      0.06818348169326782,
+      0.018944229930639267,
+      0.007804572582244873
+    ],
+    "max_weight_diff_sens_vs_unreg": [
+      0.02735089510679245,
+      0.06007302924990654,
+      0.004554267972707748
+    ],
+    "identical_predictions_reg_vs_unreg": [
+      true,
+      true,
+      true
+    ],
+    "prediction_disagreements_reg_vs_unreg": [
+      0,
+      0,
+      0
+    ],
+    "final_train_loss": {
+      "regularized": [
+        0.05678514123709392,
+        0.059957853330088455,
+        0.0656028405896255
+      ],
+      "unregularized": [
+        0.05607468621712005,
+        0.059258049668429735,
+        0.06483430933062133
+      ],
+      "sensitivity": [
+        0.05615444730186286,
+        0.05930159423424273,
+        0.06491085037533781
+      ]
+    },
+    "final_val_loss": {
+      "regularized": [
+        0.12022846192121506,
+        0.11532780528068542,
+        0.1216224730014801
+      ],
+      "unregularized": [
+        0.11994744837284088,
+        0.11497527360916138,
+        0.12120337039232254
+      ],
+      "sensitivity": [
+        0.1199595108628273,
+        0.11510265618562698,
+        0.12125968188047409
+      ]
+    },
+    "analysis_kind": "exploratory (post-hoc audit)"
+  }
+}

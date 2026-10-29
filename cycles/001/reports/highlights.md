@@ -5,3 +5,5 @@
 - Limitation: 360 test examples give 0.28 pp resolution; the conditional bootstrap does not cover training randomness.
 - Process caveat: prior results are known, so all conclusions are exploratory. Only the index of the Nanda sequence was read (src-nanda-sequence).
 - Prior-run note: Luna reported evidence hashes broken by Git line-ending conversion; keep artifacts byte-stable (study.py asserts code and protocol hashes).
+- Result (experiments): wd 0.01 vs 0 vs 0.001 give identical test predictions (accuracy 0.9676 mean, 3 seeds); primary CI [0,0], h1 not supported, not falsified (results/regularized_s*.json, unregularized_s*.json).
+- Audit (audit-experiments): weights and losses differ across wd arms (max param gap up to 0.068) but predictions are identical, so decay is applied; shuffled-label control 9.5% ≈ chance; logistic 95.6%.

@@ -1,0 +1,40 @@
+{
+  "github": {
+    "sha": "92c2204ef0055a751f0db02fb3aae01856f9eb69",
+    "pr": "https://github.com/BurnyCoder/eureka-digits-sonnet/pull/2",
+    "url": "https://github.com/BurnyCoder/eureka-digits-sonnet",
+    "at": "2026-10-29T21:12:34.879+00:00"
+  },
+  "models": {
+    "repository": "BurnyCoder/eureka-digits-sonnet-models",
+    "url": "https://huggingface.co/BurnyCoder/eureka-digits-sonnet-models",
+    "collection": "https://huggingface.co/collections/BurnyCoder/auto-eureka-scientist-6ae3ae37b267f00aef999f75",
+    "upload": {
+      "url": "https://huggingface.co/BurnyCoder/eureka-digits-sonnet-models/commit/defeca4933f3eec301562374acaee78cf079b95b"
+    },
+    "verified": true,
+    "files": {
+      "protocol.json": "b5047a8549930ea1abedc111de1fca3f05034826805d4645473912bb5365456b",
+      "README.md": "f0e9e6d9ba812636a6cf903438ba9a567297dd218cd359a956ba737e4bfb8cf0",
+      "regularized-s0.safetensors": "a57cb6e24f5e7d2a3e83da8efd97233a4b7e0e5b8492f89b3cbe6064cb86cc3d",
+      "study.py": "a16454eb60949757d367bb81811a539d026eefa940575476e732e4c73cfe9358"
+    },
+    "at": "2026-10-29T21:12:20.030+00:00"
+  },
+  "pages": {
+    "url": "https://api.github.com/repos/BurnyCoder/eureka-digits-sonnet/pages",
+    "status": null,
+    "cname": null,
+    "custom_404": false,
+    "html_url": "https://burnycoder.github.io/eureka-digits-sonnet/",
+    "build_type": "workflow",
+    "source": {
+      "branch": "main",
+      "path": "/"
+    },
+    "public": true,
+    "protected_domain_state": null,
+    "pending_domain_unverified_at": null,
+    "https_enforced": true
+  }
+}
