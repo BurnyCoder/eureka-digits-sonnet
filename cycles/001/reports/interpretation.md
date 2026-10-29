@@ -1,5 +1,7 @@
 # Interpretation (exploratory)
 
+This text includes disclosed [parent corrections](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/reports/parent-review.md) after the recorded model run. The measurements and controller counters are unchanged.
+
 ## Motivation
 Does AdamW weight decay (0.01 vs 0) improve held-out accuracy of a small MLP on the bundled digits data? Prior Haiku and Luna runs on this evaluation set are known (`src-prior-haiku`, `src-prior-luna`), so this run is an **exploratory engineering replication**, not confirmation.
 
@@ -11,23 +13,23 @@ Fixed fixture `study.py` (unchanged; hashes recorded in each result). Arms with 
 
 ## Findings
 - **Primary (claim-primary-null):** the paired-bootstrap interval is degenerate at zero and predictions are identical in every seed. h1 is not supported and not falsified; under the preregistered rule an interval spanning zero is inconclusive, and equivalence cannot be claimed.
-- **Bug check (claim-decay-applied):** weights and training losses differ between arms, so decay is applied; its accuracy effect is nil here.
+- **Bug check (claim-decay-applied):** weights and training losses differ between arms, consistent with different trajectories. That observation alone does not prove correct decay implementation. The observed accuracy difference is zero.
 - **Dose (claim-sensitivity):** the weaker-decay arm also matches the unregularized arm.
 - **Controls (claim-controls):** shuffled labels score near chance, the class prior near chance, logistic regression slightly below the MLPs.
-- **Mechanism (claim-small-decay-explanation):** per-step shrinkage lr*wd is about 1e-5 at defaults, plausibly too small to change a briefly trained model. This is an untested hypothesis.
+- **Mechanism (claim-small-decay-explanation):** the small registered per-step decay coefficient is a possible explanation for unchanged accuracy, but gradient trajectories and decision margins also matter. This is an untested hypothesis.
 
 ## Alternative explanations considered
-- Unapplied decay: ruled out by the weight and loss audit.
-- Metric arithmetic error: ruled out by recomputation from predictions.
+- Unapplied decay: weight and loss differences are consistent with the intervention affecting training, but do not by themselves rule out every implementation error.
+- Metric arithmetic error: saved accuracies match recomputation from saved predictions; this check does not establish the validity of the labels or the whole experiment.
 - Ceiling / test-set resolution: not ruled out; the small test set limits detectable differences.
 - Stronger simple baseline: logistic regression is close but lower (single seed).
 - Training randomness: controlled by paired seeds, identical splits and order.
 
 ## Negative findings
-No positive effect of decay; no dose-response over the tested range; no stronger-decay arm was run, so larger decay remains unexplored.
+No positive observed accuracy effect and no observed accuracy response across the tested decay values. No stronger-decay arm was run, so larger decay remains unexplored. These are finite-sample observations, not population equivalence claims.
 
 ## Implications
-In this setup the decay setting is not a useful lever. A confirmatory follow-up needs a prospectively amended protocol with a larger-decay arm and fresh evaluation data.
+The tested decay settings did not change the observed accuracy. A confirmatory follow-up needs a prospectively amended protocol and fresh evaluation data; a larger-decay arm could be an informative probe.
 
 ## Limitations
 Exploratory only (prior results known); 3 seeds; bootstrap conditions on trained models; small test set; single-seed baselines; post-hoc audit; weight differences conflate decay with run divergence; one dataset and architecture.
