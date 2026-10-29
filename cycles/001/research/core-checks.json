@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:/Users/Happy/Documents/projects/auto-eureka-scientist-agent-harness/.venv/Scripts/python.exe",
+    "-m",
+    "pytest",
+    "tests",
+    "-q",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "at": "2026-10-29T21:10:48.295+00:00",
+  "returncode": 0,
+  "reason": "exited",
+  "elapsed": 10.136992499988992
+}
