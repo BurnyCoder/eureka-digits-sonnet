@@ -1,5 +1,7 @@
 # Review (exploratory; cycle 1, Sonnet run)
 
+Historical model-authored review. The [parent review](../../../reports/parent-review.md) corrects its unsupported inference about sampling noise and its overstatement of the weight-difference check. This file preserves the submitted review; use the corrected interpretation and generated tables for current conclusions.
+
 Scope: one pass over code, science, citations, reproducibility, security and presentation. Nothing was retrained; no result files were changed.
 
 ## Checks actually run

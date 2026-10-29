@@ -1,5 +1,7 @@
 # Final report (exploratory; cycle 1, Sonnet run)
 
+Historical model-authored report. The [parent review](../../../reports/parent-review.md) corrects its experiment-count description, unsupported sampling-noise inference and overstatement of the weight-difference check. Current numerical tables are generated from results; the record includes a validation pilot separately from test records.
+
 Author: Libor "Burny" Burian (specification); executed by Claude Code (Sonnet). All conclusions are **exploratory**: prior Haiku and Luna results on this evaluation set are known, so nothing here is preregistered confirmation on untouched data.
 
 Numbers are not retyped here. Per-run values live in `results/*.json`; derived tables, effects, bootstrap intervals and audits are in `research/experiment-analysis.json`, `reports/experiments.md` and `reports/paper.md`. Claims and their evidence IDs are in `research/claims.json`; the requirement checklist is `research/requirements.json`.

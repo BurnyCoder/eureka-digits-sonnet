@@ -12,11 +12,11 @@
    "unregularized_s2",
    "audit-experiments"
   ],
-  "limitations": "Three seeds; the bootstrap conditions on trained models and ignores training-population variance; the small test set cannot resolve small differences; prior Haiku/Luna results on this evaluation set are known, so this is not confirmation."
+  "limitations": "The bootstrap conditions on the trained models and does not estimate training-population variance. The finite test set limits inference about unseen examples. Prior Haiku/Luna results are known, so this is not confirmation or an equivalence test."
  },
  {
   "id": "claim-decay-applied",
-  "text": "The null effect is not explained by an unapplied-decay bug: parameters and training losses differ between decay arms, while predictions agree.",
+  "text": "Parameters and training losses differ between decay arms while predictions agree. This is consistent with different training trajectories; the comparison alone does not prove correct implementation of the decay update or rule out every bug.",
   "analysis_kind": "exploratory",
   "evidence": [
    "regularized_s0",
@@ -32,7 +32,7 @@
  },
  {
   "id": "claim-small-decay-explanation",
-  "text": "A plausible but untested explanation is that lr*wd per step is tiny (about 1e-5 at AdamW defaults), so decay barely perturbs a briefly trained small MLP.",
+  "text": "A possible explanation for unchanged accuracy is the small per-step decay coefficient at the registered learning rate and weight decay. This is an untested hypothesis: gradient trajectories and decision margins also matter, so the coefficient alone does not establish the size of the fitted model change.",
   "analysis_kind": "exploratory",
   "evidence": [
    "src-adamw-doc",
@@ -48,7 +48,7 @@
  },
  {
   "id": "claim-sensitivity",
-  "text": "The weaker-decay sensitivity arm (wd 0.001) also matched the unregularized arm in accuracy; no dose-response was observed over the tested range.",
+  "text": "The weaker-decay sensitivity arm also matched the unregularized arm in observed accuracy. This statement concerns accuracy at the tested settings, not all model outputs or a population dose-response.",
   "analysis_kind": "exploratory",
   "evidence": [
    "sensitivity_s0",
