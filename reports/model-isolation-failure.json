@@ -1,0 +1,11 @@
+{
+  "attempt": 1,
+  "requested_model": "sonnet",
+  "reported_models": [
+    "claude-sonnet-5-5",
+    "claude-haiku-5-5"
+  ],
+  "phase_accepted": false,
+  "cause": "Native background web-fetch summaries were not covered by subagent model settings.",
+  "repair": "Pin the observed Sonnet snapshot and its background model before resuming; retain consumed counters."
+}
