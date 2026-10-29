@@ -8,3 +8,18 @@ Record predictions and alternative explanations before experiments and compare t
 
 
 Run status: not yet executed. See cycles/ for protocols, code, and generated reports.
+
+
+<!-- EUREKA:RESULTS:START -->
+## Recorded results
+
+Recorded harness status: **running**; 3 operational phases accepted. Measurements below do not imply completion of unaccepted phases.
+
+| Experiment | Method | Seed | Split | Accuracy | Seconds | Device |
+|---|---|---:|---|---:|---:|---|
+| pilot_regularized_s0 | regularized | 0 | validation | 0.966574 | 8.906 | cuda |
+
+The registered primary comparison is pending; no confirmatory conclusion is available.
+
+See [full report](cycles/001/reports/summary.md).
+<!-- EUREKA:RESULTS:END -->

@@ -2,19 +2,64 @@
   "id": "ab4dcda84760",
   "backend": "claude",
   "requested_model": "sonnet",
-  "status": "blocked",
-  "message": "Unexpected model claude-haiku-5-5; requested sonnet. No fallback permitted.",
-  "calls": 1,
-  "active_seconds": 117.40040270000463,
+  "model_pin": "claude-sonnet-5-5",
+  "status": "running",
+  "message": "",
+  "calls": 5,
+  "active_seconds": 393.4984435000224,
   "limits": {
     "minutes": 180.0,
     "calls": 60
   },
   "configuration_history": {
-    "changes": []
+    "changes": [
+      {
+        "at": "2026-10-29T21:07:21.380+00:00",
+        "previous": {
+          "project": "C:\\Users\\Happy\\Documents\\projects\\auto-eureka-scientist-agent-harness\\workspaces\\eureka-digits-sonnet",
+          "backend": "claude",
+          "model": "sonnet",
+          "mode": "cycle",
+          "max_minutes": 180.0,
+          "max_calls": 60,
+          "max_cycles": null,
+          "profile": "digits-replication",
+          "publish": true,
+          "owner": "BurnyCoder",
+          "repository": "",
+          "executable": "",
+          "reasoning": "high",
+          "hf_collection": "BurnyCoder/auto-eureka-scientist-6ae3ae37b267f00aef999f75"
+        },
+        "updated": {
+          "project": "C:\\Users\\Happy\\Documents\\projects\\auto-eureka-scientist-agent-harness\\workspaces\\eureka-digits-sonnet",
+          "backend": "claude",
+          "model": "sonnet",
+          "mode": "cycle",
+          "max_minutes": 180.0,
+          "max_calls": 60,
+          "max_cycles": null,
+          "profile": "digits-replication",
+          "publish": true,
+          "owner": "BurnyCoder",
+          "repository": "",
+          "executable": "",
+          "reasoning": "high",
+          "hf_collection": "BurnyCoder/auto-eureka-scientist-6ae3ae37b267f00aef999f75",
+          "model_pin": "claude-sonnet-5-5"
+        },
+        "calls": 1,
+        "active_seconds": 117.40040270000463,
+        "previous_status": "blocked"
+      }
+    ]
   },
   "policy_sha256": "6a9addc31e8fe730400c32e935c1a62fc7b9f12b615a997f84c0e6025cd3e922",
-  "completed_phases": [],
+  "completed_phases": [
+    "research",
+    "preregister",
+    "core"
+  ],
   "attempts": [
     {
       "id": 1,
@@ -99,6 +144,274 @@
         "reported_cost_usd": 0.4648069000000001
       },
       "searched": true
+    },
+    {
+      "id": 2,
+      "cycle": 1,
+      "phase": "research",
+      "status": "accepted",
+      "started": "2026-10-29T21:07:21.475+00:00",
+      "ended": "2026-10-29T21:08:11.774+00:00",
+      "prompt_sha256": "26220960fbe5313bb1974e6480fe00fdb89aa53680dd4e2a23f2b1016579554b",
+      "models": [
+        "claude-sonnet-5-5"
+      ],
+      "model_identity_status": "reported",
+      "usage": {
+        "input_tokens": 16,
+        "cache_creation_input_tokens": 43700,
+        "cache_read_input_tokens": 336602,
+        "output_tokens": 2963,
+        "output_tokens_details": {
+          "thinking_tokens": 392
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 43700,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1478,
+            "cache_read_input_tokens": 58235,
+            "cache_creation_input_tokens": 870,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 870
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null,
+        "model_usage": {
+          "claude-sonnet-5-5": {
+            "inputTokens": 20540,
+            "outputTokens": 3615,
+            "cacheReadInputTokens": 336602,
+            "cacheCreationInputTokens": 43700,
+            "webSearchRequests": 0,
+            "costUSD": 0.28569019999999995,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 128000,
+            "thinkingTokens": 392,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationEphemeral1hInputTokens": 43700,
+            "canonicalModel": "claude-sonnet-5-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        },
+        "reported_cost_usd": 0.28569019999999995
+      },
+      "searched": true
+    },
+    {
+      "id": 3,
+      "cycle": 1,
+      "phase": "preregister",
+      "status": "accepted",
+      "started": "2026-10-29T21:08:11.844+00:00",
+      "ended": "2026-10-29T21:08:56.625+00:00",
+      "prompt_sha256": "45e787aea61c4213a3fcc6848c926e9a7a54d8dae61ce60210f60738cdf418fe",
+      "models": [
+        "claude-sonnet-5-5"
+      ],
+      "model_identity_status": "reported",
+      "usage": {
+        "input_tokens": 8,
+        "cache_creation_input_tokens": 44685,
+        "cache_read_input_tokens": 170661,
+        "output_tokens": 4170,
+        "output_tokens_details": {
+          "thinking_tokens": 44
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 44685,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1213,
+            "cache_read_input_tokens": 57243,
+            "cache_creation_input_tokens": 2847,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 2847
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null,
+        "model_usage": {
+          "claude-sonnet-5-5": {
+            "inputTokens": 8,
+            "outputTokens": 4170,
+            "cacheReadInputTokens": 170661,
+            "cacheCreationInputTokens": 44685,
+            "webSearchRequests": 0,
+            "costUSD": 0.2375221,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 128000,
+            "thinkingTokens": 44,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationEphemeral1hInputTokens": 44685,
+            "canonicalModel": "claude-sonnet-5-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        },
+        "reported_cost_usd": 0.2375221
+      },
+      "searched": false
+    },
+    {
+      "id": 4,
+      "cycle": 1,
+      "phase": "core",
+      "status": "accepted",
+      "started": "2026-10-29T21:08:57.216+00:00",
+      "ended": "2026-10-29T21:10:48.300+00:00",
+      "prompt_sha256": "ac4bc1767f952eeabead877b8d053cd91d0d7408a7e518fd6909b3c7626c0e48",
+      "models": [
+        "claude-sonnet-5-5"
+      ],
+      "model_identity_status": "reported",
+      "usage": {
+        "input_tokens": 14,
+        "cache_creation_input_tokens": 48005,
+        "cache_read_input_tokens": 346252,
+        "output_tokens": 8101,
+        "output_tokens_details": {
+          "thinking_tokens": 567
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 48005,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1109,
+            "cache_read_input_tokens": 61281,
+            "cache_creation_input_tokens": 2129,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 2129
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null,
+        "model_usage": {
+          "claude-sonnet-5-5": {
+            "inputTokens": 14,
+            "outputTokens": 8101,
+            "cacheReadInputTokens": 346252,
+            "cacheCreationInputTokens": 48005,
+            "webSearchRequests": 0,
+            "costUSD": 0.3076832,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 128000,
+            "thinkingTokens": 567,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationEphemeral1hInputTokens": 48005,
+            "canonicalModel": "claude-sonnet-5-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        },
+        "reported_cost_usd": 0.3076832
+      },
+      "searched": false
+    },
+    {
+      "id": 5,
+      "cycle": 1,
+      "phase": "pilot",
+      "status": "accepted",
+      "started": "2026-10-29T21:11:01.314+00:00",
+      "ended": "2026-10-29T21:11:57.737+00:00",
+      "prompt_sha256": "2a79fa3312ea6e0e94e42a9a03772c31f8130b36db80a56cf1f2433c26586fcf",
+      "models": [
+        "claude-sonnet-5-5"
+      ],
+      "model_identity_status": "reported",
+      "usage": {
+        "input_tokens": 12,
+        "cache_creation_input_tokens": 42737,
+        "cache_read_input_tokens": 277594,
+        "output_tokens": 3031,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 42737,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1028,
+            "cache_read_input_tokens": 56750,
+            "cache_creation_input_tokens": 1392,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1392
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null,
+        "model_usage": {
+          "claude-sonnet-5-5": {
+            "inputTokens": 12,
+            "outputTokens": 3031,
+            "cacheReadInputTokens": 277594,
+            "cacheCreationInputTokens": 42737,
+            "webSearchRequests": 0,
+            "costUSD": 0.22904139999999998,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 128000,
+            "thinkingTokens": 0,
+            "cacheCreationEphemeral5mInputTokens": 0,
+            "cacheCreationEphemeral1hInputTokens": 42737,
+            "canonicalModel": "claude-sonnet-5-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        },
+        "reported_cost_usd": 0.22904139999999998
+      },
+      "searched": false
     }
   ]
 }
