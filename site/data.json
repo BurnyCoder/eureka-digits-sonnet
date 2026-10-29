@@ -210,10 +210,10 @@
     "backend": "claude",
     "requested_model": "sonnet",
     "model_pin": "claude-sonnet-5-5",
-    "status": "running",
-    "message": "",
+    "status": "complete",
+    "message": "All required phases completed",
     "calls": 9,
-    "active_seconds": 744.2074855000246,
+    "active_seconds": 775.0368356000399,
     "limits": {
       "minutes": 180.0,
       "calls": 60
@@ -269,7 +269,8 @@
       "pilot",
       "experiments",
       "analysis",
-      "review"
+      "review",
+      "publish"
     ],
     "attempts": [
       {
