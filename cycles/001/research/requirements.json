@@ -1,156 +1,203 @@
 [
-  {
-    "id": "policy-01",
-    "heading": "Research existing work and cite sources",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-02",
-    "heading": "Scientific mindset and role models",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-03",
-    "heading": "Experimental design and statistical rigor",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-04",
-    "heading": "Grounding and technical correctness",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-05",
-    "heading": "Principles",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-06",
-    "heading": "Code structure and quality",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-07",
-    "heading": "Claims, evidence and writing style",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-08",
-    "heading": "Paper",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-09",
-    "heading": "README.md and paper",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-10",
-    "heading": "Experiment reports",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-11",
-    "heading": "Visualization",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-12",
-    "heading": "README.md",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-13",
-    "heading": "Docs",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-14",
-    "heading": "Order of work",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-15",
-    "heading": "Logging and comments",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-16",
-    "heading": "Testing, debugging and code review",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-17",
-    "heading": "Git, GitHub and Hugging Face",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-18",
-    "heading": "Environment and project setup",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-19",
-    "heading": "Machine, permissions and tools",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-20",
-    "heading": "README.md ocs, AGENTS.md, docs, results, paper, experiments, reports, experiment files, paper, HuggingFace card",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-21",
-    "heading": "Final checks",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  },
-  {
-    "id": "policy-22",
-    "heading": "Attribution and visual debugging",
-    "status": "pending",
-    "evidence": [],
-    "reason": ""
-  }
+ {
+  "id": "policy-01",
+  "heading": "Research existing work and cite sources",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/research/sources.json"
+  ],
+  "reason": "Sources recorded in the research phase."
+ },
+ {
+  "id": "policy-02",
+  "heading": "Scientific mindset and role models",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/reports/interpretation.md",
+   "cycles/001/research/experiment-predictions.md"
+  ],
+  "reason": "Exploratory framing, alternatives and predictions recorded."
+ },
+ {
+  "id": "policy-03",
+  "heading": "Experimental design and statistical rigor",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/research/protocol.json",
+   "cycles/001/research/experiment-analysis.json"
+  ],
+  "reason": "Preregistered protocol, paired bootstrap, shuffled-label control, baselines, 3 seeds; no equivalence claimed."
+ },
+ {
+  "id": "policy-04",
+  "heading": "Grounding and technical correctness",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/research/sources.json",
+   "cycles/001/research/experiment-analysis.json"
+  ],
+  "reason": "Optimizer behaviour checked against AdamW docs; recomputed accuracy matches."
+ },
+ {
+  "id": "policy-05",
+  "heading": "Principles",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/study.py",
+   "cycles/001/analysis.py"
+  ],
+  "reason": "Reused the supplied study.py; analysis helpers kept separate and minimal."
+ },
+ {
+  "id": "policy-06",
+  "heading": "Code structure and quality",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/analysis.py",
+   "cycles/001/tests/test_study.py"
+  ],
+  "reason": "study.py unchanged to preserve pinned hashes; helper module and tests added."
+ },
+ {
+  "id": "policy-07",
+  "heading": "Claims, evidence and writing style",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/research/claims.json"
+  ],
+  "reason": "Claims carry evidence IDs, evidence kind and limitations."
+ },
+ {
+  "id": "policy-08",
+  "heading": "Paper",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/reports/paper.md"
+  ],
+  "reason": "Controller-generated paper draft exists."
+ },
+ {
+  "id": "policy-09",
+  "heading": "README.md and paper",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/reports/metrics.json",
+   "cycles/001/figures/accuracy.png"
+  ],
+  "reason": "Controller generates tables and figures; accuracy figure exists."
+ },
+ {
+  "id": "policy-10",
+  "heading": "Experiment reports",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/reports/experiments.md",
+   "cycles/001/reports/pilot.md"
+  ],
+  "reason": "Per-experiment and combined reports exist."
+ },
+ {
+  "id": "policy-11",
+  "heading": "Visualization",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/figures/accuracy.png",
+   "cycles/001/figures/loss.png"
+  ],
+  "reason": "Accuracy, loss and architecture figures exist; interactive UI is controller scope."
+ },
+ {
+  "id": "policy-12",
+  "heading": "README.md",
+  "status": "not_applicable",
+  "evidence": [],
+  "reason": "README is controller/publish scope, not edited in analysis."
+ },
+ {
+  "id": "policy-13",
+  "heading": "Docs",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/docs/reproduction.md"
+  ],
+  "reason": "Reproduction docs written in core phase."
+ },
+ {
+  "id": "policy-14",
+  "heading": "Order of work",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/reports/preregistration.md",
+   "cycles/001/research/decisions.jsonl"
+  ],
+  "reason": "Core, preregistration before results, pilot, then experiments, in order."
+ },
+ {
+  "id": "policy-15",
+  "heading": "Logging and comments",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/research/experiments-run.log"
+  ],
+  "reason": "Timestamped run log kept; fixture makes no LLM calls."
+ },
+ {
+  "id": "policy-16",
+  "heading": "Testing, debugging and code review",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/research/checks.json",
+   "cycles/001/tests/test_study.py"
+  ],
+  "reason": "study.py check and 9 pytest tests passed; one-pass review in analysis."
+ },
+ {
+  "id": "policy-17",
+  "heading": "Git, GitHub and Hugging Face",
+  "status": "not_applicable",
+  "evidence": [],
+  "reason": "Git and Hugging Face actions are controller-owned."
+ },
+ {
+  "id": "policy-18",
+  "heading": "Environment and project setup",
+  "status": "not_applicable",
+  "evidence": [],
+  "reason": "Harness-provided venv is used; project setup is not part of this phase."
+ },
+ {
+  "id": "policy-19",
+  "heading": "Machine, permissions and tools",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/research/experiments-run.log"
+  ],
+  "reason": "Work stayed inside the project."
+ },
+ {
+  "id": "policy-20",
+  "heading": "README.md ocs, AGENTS.md, docs, results, paper, experiments, reports, experiment files, paper, HuggingFace card",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/reports/interpretation.md",
+   "cycles/001/reports/metrics.json"
+  ],
+  "reason": "Interpretation contains no hand-typed scores; numbers come from results files."
+ },
+ {
+  "id": "policy-21",
+  "heading": "Final checks",
+  "status": "satisfied",
+  "evidence": [
+   "cycles/001/research/claims.json"
+  ],
+  "reason": "Deliverables checked with the draft verify command."
+ },
+ {
+  "id": "policy-22",
+  "heading": "Attribution and visual debugging",
+  "status": "not_applicable",
+  "evidence": [],
+  "reason": "AI statement belongs in the paper, generated by the controller."
+ }
 ]

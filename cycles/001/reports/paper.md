@@ -7,9 +7,9 @@ fontsize: 10pt
 
 # Abstract
 
-This report records a bounded research cycle executed through Claude Code. The registered primary comparison is pending; no confirmatory conclusion is available.
+This report records a bounded research cycle executed through Claude Code. The mean paired accuracy difference is 0.000000, with conditional 95% bootstrap interval [0.000000, 0.000000]. The registered decision is **inconclusive**. The sample standard deviation across seed effects is 0.000000. The interval uses 10000 paired resamples of test examples and conditions on the trained models.
 
-Recorded harness status: **running**; 3 operational phases accepted. Measurements below do not imply completion of unaccepted phases.
+Recorded harness status: **running**; 7 operational phases accepted. Measurements below do not imply completion of unaccepted phases.
 
 
 
@@ -48,9 +48,23 @@ The objective is reproducible evidence and an inspectable research process. This
 
 | Method | Seed | Split | Accuracy | Seconds | Device |
 |-------------------------|-----:|------------|-----------:|----------:|----------|
+| class prior | 0 | test | 0.102778 | 0.030 | cpu |
+| logistic | 0 | test | 0.955556 | 0.124 | cpu |
 | regularized | 0 | validation | 0.966574 | 8.906 | cuda |
+| regularized | 0 | test | 0.963889 | 0.266 | cuda |
+| regularized | 1 | test | 0.969444 | 6.516 | cuda |
+| regularized | 2 | test | 0.969444 | 2.524 | cuda |
+| sensitivity | 0 | test | 0.963889 | 2.625 | cuda |
+| sensitivity | 1 | test | 0.969444 | 2.594 | cuda |
+| sensitivity | 2 | test | 0.969444 | 2.621 | cuda |
+| shuffled labels | 0 | test | 0.061111 | 2.660 | cuda |
+| shuffled labels | 1 | test | 0.116667 | 2.385 | cuda |
+| shuffled labels | 2 | test | 0.108333 | 2.384 | cuda |
+| unregularized | 0 | test | 0.963889 | 2.455 | cuda |
+| unregularized | 1 | test | 0.969444 | 2.447 | cuda |
+| unregularized | 2 | test | 0.969444 | 2.443 | cuda |
 
-The registered primary comparison is pending; no confirmatory conclusion is available.
+The mean paired accuracy difference is 0.000000, with conditional 95% bootstrap interval [0.000000, 0.000000]. The registered decision is **inconclusive**. The sample standard deviation across seed effects is 0.000000. The interval uses 10000 paired resamples of test examples and conditions on the trained models.
 
 ![All recorded accuracies](../figures/accuracy.png)
 
@@ -60,20 +74,64 @@ The registered primary comparison is pending; no confirmatory conclusion is avai
 
 *Recorded learning curves.*
 
-First saved test examples; no correctness-based selection: no applicable measurement recorded.
+![First saved test examples; no correctness-based selection](../figures/examples.png)
+
+*First saved test examples; no correctness-based selection.*
 
 # Claims and evidence
 
-Claims have not yet been distilled.
+- **claim-primary-null**: On this digits fixture, AdamW weight decay 0.01 vs 0 produced no measurable change in test accuracy: the paired-bootstrap interval for the primary effect is degenerate at zero and predictions are identical in all three seeds. h1 (positive effect) is not supported; it is not falsified, and equivalence is not established. Evidence: [regularized_s0](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/regularized_s0.json), [regularized_s1](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/regularized_s1.json), [regularized_s2](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/regularized_s2.json), [unregularized_s0](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/unregularized_s0.json), [unregularized_s1](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/unregularized_s1.json), [unregularized_s2](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/unregularized_s2.json), [audit-experiments](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/research/evidence-snapshots/3f1888c9c08d04cb46792effbedc9b8c0bd2a86d888d193131bb2e52d532cfac.json). Limitations: Three seeds; the bootstrap conditions on trained models and ignores training-population variance; the small test set cannot resolve small differences; prior Haiku/Luna results on this evaluation set are known, so this is not confirmation.
+- **claim-decay-applied**: The null effect is not explained by an unapplied-decay bug: parameters and training losses differ between decay arms, while predictions agree. Evidence: [regularized_s0](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/regularized_s0.json), [regularized_s1](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/regularized_s1.json), [regularized_s2](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/regularized_s2.json), [unregularized_s0](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/unregularized_s0.json), [unregularized_s1](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/unregularized_s1.json), [unregularized_s2](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/unregularized_s2.json), [audit-experiments](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/research/evidence-snapshots/3f1888c9c08d04cb46792effbedc9b8c0bd2a86d888d193131bb2e52d532cfac.json), [src-adamw-doc](https://docs.pytorch.org/docs/2.15/generated/torch.optim.AdamW.html). Limitations: Post-hoc audit. Weight differences cannot separate the decay effect from run-to-run divergence; no much-larger-decay ablation was run.
+- **claim-small-decay-explanation**: A plausible but untested explanation is that lr*wd per step is tiny (about 1e-5 at AdamW defaults), so decay barely perturbs a briefly trained small MLP. Evidence: [src-adamw-doc](https://docs.pytorch.org/docs/2.15/generated/torch.optim.AdamW.html), [src-adamw-paper](https://arxiv.org/abs/1711.05101), [regularized_s0](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/regularized_s0.json), [regularized_s1](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/regularized_s1.json), [regularized_s2](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/regularized_s2.json), [unregularized_s0](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/unregularized_s0.json), [unregularized_s1](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/unregularized_s1.json), [unregularized_s2](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/unregularized_s2.json). Limitations: Hypothesis from arithmetic on the documented update rule, not an intervention; the sensitivity arm (weaker decay) does not test larger decay.
+- **claim-sensitivity**: The weaker-decay sensitivity arm (wd 0.001) also matched the unregularized arm in accuracy; no dose-response was observed over the tested range. Evidence: [sensitivity_s0](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/sensitivity_s0.json), [sensitivity_s1](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/sensitivity_s1.json), [sensitivity_s2](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/sensitivity_s2.json), [unregularized_s0](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/unregularized_s0.json), [unregularized_s1](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/unregularized_s1.json), [unregularized_s2](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/unregularized_s2.json), [audit-experiments](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/research/evidence-snapshots/3f1888c9c08d04cb46792effbedc9b8c0bd2a86d888d193131bb2e52d532cfac.json). Limitations: Only one weaker dose; descriptive role only.
+- **claim-controls**: Controls behaved as expected: shuffled-label training scored near chance, the class-prior baseline near chance, and logistic regression slightly below the MLPs, so the pipeline measures real signal. Evidence: [shuffled_labels_s0](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/shuffled_labels_s0.json), [shuffled_labels_s1](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/shuffled_labels_s1.json), [shuffled_labels_s2](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/shuffled_labels_s2.json), [class_prior_s0](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/class_prior_s0.json), [logistic_s0](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/logistic_s0.json), [regularized_s0](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/regularized_s0.json), [regularized_s1](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/regularized_s1.json), [regularized_s2](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/results/regularized_s2.json), [audit-experiments](https://github.com/BurnyCoder/eureka-digits-sonnet/blob/main/cycles/001/research/evidence-snapshots/3f1888c9c08d04cb46792effbedc9b8c0bd2a86d888d193131bb2e52d532cfac.json). Limitations: Logistic baseline has one seed and untuned hyperparameters; its gap to the MLP is small and uncertainty was not quantified.
+- **claim-prior-context**: This run was executed with prior Haiku/Luna results known, so it provides exploratory replication only, not independent confirmation. Evidence: [src-prior-haiku](https://github.com/BurnyCoder/eureka-digits-haiku), [src-prior-luna](https://github.com/BurnyCoder/eureka-digits-luna). Limitations: Prior runs were summarized from their READMEs, not re-derived.
 
 # Discussion, implications, and learnings
 
-This is a preliminary artifact generated before final interpretation. All available outcomes are retained; a completed experiment is not evidence that the favored hypothesis is true.
+# Interpretation (exploratory)
+
+## Motivation
+Does AdamW weight decay (0.01 vs 0) improve held-out accuracy of a small MLP on the bundled digits data? Prior Haiku and Luna runs on this evaluation set are known (`src-prior-haiku`, `src-prior-luna`), so this run is an **exploratory engineering replication**, not confirmation.
+
+## Context
+AdamW decouples decay from the gradient update (`src-adamw-paper`; update rule in `src-adamw-doc`). Data: scikit-learn digits, 1797 x 64, 10 classes (`src-load-digits`, `src-uci-digits`). Checkpoints use safetensors (`src-safetensors-doc`). Process guidance: `src-nanda-sequence`, `src-lones-pitfalls`.
+
+## Methods
+Fixed fixture `study.py` (unchanged; hashes recorded in each result). Arms with seeds 0-2: `regularized_s*` (wd 0.01), `unregularized_s*` (wd 0), `sensitivity_s*` (wd 0.001), `shuffled_labels_s*` (control); single-seed baselines `logistic_s0`, `class_prior_s0`; pilot `pilot_regularized_s0` (validation only). Primary metric: mean paired test-accuracy difference, regularized minus unregularized, with 10000 paired bootstrap resamples (`research/protocol.json`). Predictions were recorded before the run (`research/experiment-predictions.md`). Post-hoc audit `audit-experiments`: metric recomputation, weight and loss comparison. All numbers live in `results/*.json`, `research/experiment-analysis.json` and the controller-generated `reports/metrics.json`; none are retyped here.
+
+## Findings
+- **Primary (claim-primary-null):** the paired-bootstrap interval is degenerate at zero and predictions are identical in every seed. h1 is not supported and not falsified; under the preregistered rule an interval spanning zero is inconclusive, and equivalence cannot be claimed.
+- **Bug check (claim-decay-applied):** weights and training losses differ between arms, so decay is applied; its accuracy effect is nil here.
+- **Dose (claim-sensitivity):** the weaker-decay arm also matches the unregularized arm.
+- **Controls (claim-controls):** shuffled labels score near chance, the class prior near chance, logistic regression slightly below the MLPs.
+- **Mechanism (claim-small-decay-explanation):** per-step shrinkage lr*wd is about 1e-5 at defaults, plausibly too small to change a briefly trained model. This is an untested hypothesis.
+
+## Alternative explanations considered
+- Unapplied decay: ruled out by the weight and loss audit.
+- Metric arithmetic error: ruled out by recomputation from predictions.
+- Ceiling / test-set resolution: not ruled out; the small test set limits detectable differences.
+- Stronger simple baseline: logistic regression is close but lower (single seed).
+- Training randomness: controlled by paired seeds, identical splits and order.
+
+## Negative findings
+No positive effect of decay; no dose-response over the tested range; no stronger-decay arm was run, so larger decay remains unexplored.
+
+## Implications
+In this setup the decay setting is not a useful lever. A confirmatory follow-up needs a prospectively amended protocol with a larger-decay arm and fresh evaluation data.
+
+## Limitations
+Exploratory only (prior results known); 3 seeds; bootstrap conditions on trained models; small test set; single-seed baselines; post-hoc audit; weight differences conflate decay with run divergence; one dataset and architecture.
+
+## Related work
+Decoupled weight decay: `src-adamw-paper`. Pitfalls checklist: `src-lones-pitfalls`. Earlier executions of this study: `src-prior-haiku`, `src-prior-luna`.
+
 
 # Limitations
 
 - Conditional test-example intervals do not estimate variation over new training seeds, writers, or datasets.
 - A small single-task study does not establish general model or harness superiority.
+- No discordant predictions were observed in the primary pairs. The empirical bootstrap interval collapses to zero; this is not an equivalence test or a guarantee about unseen examples.
 
 Exploratory outcomes do not become confirmatory by inclusion in this document. Missing metrics are not zero. Measurements without an applicable recorded objective are omitted; see the requirement checklist for explanations.
 
@@ -91,7 +149,7 @@ Exploratory outcomes do not become confirmatory by inclusion in this document. M
 
 # Conclusion
 
-The registered primary comparison is pending; no confirmatory conclusion is available.
+The mean paired accuracy difference is 0.000000, with conditional 95% bootstrap interval [0.000000, 0.000000]. The registered decision is **inconclusive**. The sample standard deviation across seed effects is 0.000000. The interval uses 10000 paired resamples of test examples and conditions on the trained models.
 
 # Appendix: reproducibility and provenance
 

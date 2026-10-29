@@ -1,0 +1,91 @@
+[
+ {
+  "id": "claim-primary-null",
+  "text": "On this digits fixture, AdamW weight decay 0.01 vs 0 produced no measurable change in test accuracy: the paired-bootstrap interval for the primary effect is degenerate at zero and predictions are identical in all three seeds. h1 (positive effect) is not supported; it is not falsified, and equivalence is not established.",
+  "analysis_kind": "exploratory",
+  "evidence": [
+   "regularized_s0",
+   "regularized_s1",
+   "regularized_s2",
+   "unregularized_s0",
+   "unregularized_s1",
+   "unregularized_s2",
+   "audit-experiments"
+  ],
+  "limitations": "Three seeds; the bootstrap conditions on trained models and ignores training-population variance; the small test set cannot resolve small differences; prior Haiku/Luna results on this evaluation set are known, so this is not confirmation."
+ },
+ {
+  "id": "claim-decay-applied",
+  "text": "The null effect is not explained by an unapplied-decay bug: parameters and training losses differ between decay arms, while predictions agree.",
+  "analysis_kind": "exploratory",
+  "evidence": [
+   "regularized_s0",
+   "regularized_s1",
+   "regularized_s2",
+   "unregularized_s0",
+   "unregularized_s1",
+   "unregularized_s2",
+   "audit-experiments",
+   "src-adamw-doc"
+  ],
+  "limitations": "Post-hoc audit. Weight differences cannot separate the decay effect from run-to-run divergence; no much-larger-decay ablation was run."
+ },
+ {
+  "id": "claim-small-decay-explanation",
+  "text": "A plausible but untested explanation is that lr*wd per step is tiny (about 1e-5 at AdamW defaults), so decay barely perturbs a briefly trained small MLP.",
+  "analysis_kind": "exploratory",
+  "evidence": [
+   "src-adamw-doc",
+   "src-adamw-paper",
+   "regularized_s0",
+   "regularized_s1",
+   "regularized_s2",
+   "unregularized_s0",
+   "unregularized_s1",
+   "unregularized_s2"
+  ],
+  "limitations": "Hypothesis from arithmetic on the documented update rule, not an intervention; the sensitivity arm (weaker decay) does not test larger decay."
+ },
+ {
+  "id": "claim-sensitivity",
+  "text": "The weaker-decay sensitivity arm (wd 0.001) also matched the unregularized arm in accuracy; no dose-response was observed over the tested range.",
+  "analysis_kind": "exploratory",
+  "evidence": [
+   "sensitivity_s0",
+   "sensitivity_s1",
+   "sensitivity_s2",
+   "unregularized_s0",
+   "unregularized_s1",
+   "unregularized_s2",
+   "audit-experiments"
+  ],
+  "limitations": "Only one weaker dose; descriptive role only."
+ },
+ {
+  "id": "claim-controls",
+  "text": "Controls behaved as expected: shuffled-label training scored near chance, the class-prior baseline near chance, and logistic regression slightly below the MLPs, so the pipeline measures real signal.",
+  "analysis_kind": "exploratory",
+  "evidence": [
+   "shuffled_labels_s0",
+   "shuffled_labels_s1",
+   "shuffled_labels_s2",
+   "class_prior_s0",
+   "logistic_s0",
+   "regularized_s0",
+   "regularized_s1",
+   "regularized_s2",
+   "audit-experiments"
+  ],
+  "limitations": "Logistic baseline has one seed and untuned hyperparameters; its gap to the MLP is small and uncertainty was not quantified."
+ },
+ {
+  "id": "claim-prior-context",
+  "text": "This run was executed with prior Haiku/Luna results known, so it provides exploratory replication only, not independent confirmation.",
+  "analysis_kind": "exploratory",
+  "evidence": [
+   "src-prior-haiku",
+   "src-prior-luna"
+  ],
+  "limitations": "Prior runs were summarized from their READMEs, not re-derived."
+ }
+]
